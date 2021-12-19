@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+
+{%  block body %} 
+
+    <!-- ALert -->
+    {% if messages %}
+    {% for mess in messages %}
+    <div id='error_msg' class="container alert alert-warning alert-dismissible fade show my-2" role="alert">
+      {{mess}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+      {% endfor %}
+      {% endif%}
+
+<!-- Modal -->
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="container" method="post" action="/userlogin">{% csrf_token %}
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" name="username" id="username">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="passwd" id="pasword">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <!-- <div class="modal-footer">
+
+               </div> -->
+               
+
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+
+     <!-- Student Form  -->
+     <form  action="/" method="post" class="container my-3"> {% csrf_token %}
+     
+      <div class="mb-3">
+        <label for="Student_name" class="form-label">Student Name</label>
+        <input type="text" name="Student_name" class="form-control" id="Student_name" aria-describedby="emailHelp" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="College_name" class="form-label">College Name</label>
+        <input type="text" name="College_name" class="form-control" id="College_name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="Specialisation" class="form-label">Specailsation</label>
+        <input type="text" name="Specialisation" class="form-control" id="Specailsation" required>
+      </div>
+
+      <div class="mb-3">
+
+        <label for="Degree_name" class="form-label">Degree Name</label>
+        <select class="form-select my-2" name="Degree_name" aria-label="Default select example" id="Degree_name" required>
+          <option value="" selected disabled>Choose here</option>
+           <option value="BE">BE</option>
+           <option value="MBA">MBA</option>
+           <option value="MCA">MCA</option>
+           <option value="Msc">Msc</option>
+           <option value="B.Com">B.Com</option>
+           <option value="BA">BA</option>
+           <option id='option_other' value="Others">Others</option>
+         </select>
+           <div class="my-3 visually-hidden ms-4"  id="degree_other">
+                <label for="if_others">Enter Degree name</label>
+           <input type="text" class="form-control my-2" id="if_others">
+      </div>
+      </div>
+
+      <div class="mb-3">
+
+        <label for="internship" class="form-label">Internship Applied For</label>
+        <select name="internship" class="form-select my-2" aria-label="Default select example" id="internship" required>
+          <option value="" selected disabled>Choose here</option>
+           <option value="web-dev">Web Developer</option>
+           <option value="full-stack">Full Stack Developer</option>
+           <option value="Others">Others</option>
+      </select>
+      </div>
+
+      <div class="mb-3">
+
+        <label for="Ph_no" class="form-label">Phone Number</label>
+        <input name="Ph_no" type="text" class="form-control" id="Ph_no" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email_id" class="form-label">Email Id</label>
+        <input type="email" name="email_id" class="form-control" id="email_id" required>
+      </div>
+
+      <div class="mb-3">
+
+        <label for="location" class="form-label">Location</label>
+        <input type="text" name='location' class="form-control" id="location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <div class="form-check ms-3">
+           <input class="form-check-input" type="radio" value="male" name="gender"  required>
+           <label class="form-check-label" for="male">
+             Male
+           </label>
+         </div>
+
+         <div class="form-check ms-3">
+           <input class="form-check-input" type="radio" value="female" name="gender" required>
+           <label class="form-check-label" for="female">
+                Female
+           </label>
+         </div>
+      </div>
+      
+      <div class="form-floating mb-3">
+           <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="notes" style="height: 100px" required></textarea>
+           <label for="floatingTextarea2">Notes</label>
+           </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+{% endblock body %} 
