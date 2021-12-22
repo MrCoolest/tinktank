@@ -24,32 +24,7 @@
 
 {% endif %}
 
-<hr>
 
-<table class="table container my-4 mb-5">
-     <h3 class="text-center my-2">All Students</h3>
-     <thead>
-       <tr>
-         <th scope="col">#</th>
-         <th scope="col">Name</th>
-         <th scope="col">Degree</th>
-         <th scope="col">Email</th>
-         <th scope="col">Specialisation </th>
-       </tr>
-     </thead>
-     <tbody>
-          {% for student in students %}
-       <tr>
-         <th scope="row">1</th>
-         <td>{{ student.student_name }}</td>
-         <td>{{ student.Degree_name }}</td>
-         <td>{{ student.Email }}</td>
-         <td>{{ student.Specialisation}}</td>
-       </tr>
-       {% endfor %}
-      
-     </tbody>
-   </table>
 
 {% endblock body %}
 

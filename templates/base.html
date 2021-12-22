@@ -28,10 +28,12 @@
      <!-- NavBar -->
      <nav class="navbar navbar-dark bg-dark py-2">
           <div class="container-fluid">
-               <a href="/" class="navbar-brand ms-4">Logo</a>
+            
 
 
                {% if 'user' in request.session %}
+               <h5 class="text-white">Hello &nbsp;<span class="badge bg-secondary text-info">{{ request.session.user }}</span></h5>
+
                <form class="d-flex" action="/search">
                     <input class="form-control me-2" type="search" name='search' placeholder="Search"
                          aria-label="Search" required>
@@ -40,6 +42,7 @@
 
                <a type="button" href="/userlogout" class="btn btn-danger">Logout</a>
                {% else %}
+               <a href="/" class="navbar-brand ms-4">Logo</a>
                <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
 
                {% endif %}

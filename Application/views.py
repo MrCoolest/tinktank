@@ -56,7 +56,7 @@ def search(request):
      query = request.GET.get('search')
      search_student = Students.objects.values_list('student_name' , 'Specialisation', 'Location', "Gender", 'Email','Phone_no','Degree_name','id')
      student_list = []
-
+     
      for i in search_student:
           for j in range(0,7):
                if(query.lower() in i[j] or query.upper() in i[j] or query.capitalize() in i[j]):
@@ -66,8 +66,7 @@ def search(request):
      for content in student_list:
           name = content[0]
           item = Students.objects.filter(student_name = name)
-          student_set.add(item)
-     print("SEcond list", student_set)     
+          student_set.add(item)  
 
      all_students = Students.objects.all()
      return render(request, 'search.html', {'students' : all_students, 'search_students':student_set})
