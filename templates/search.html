@@ -24,8 +24,72 @@
 
 {% endif %}
 
+<hr>
 
+<table class="table container my-4 mb-5">
+     <h3 class="text-center my-2">All Students</h3>
+     <label for="Search in Tabel"></label>
+    <center> <input class="me-2" type="search" name='search'  id='table-search' placeholder="Search"> </center>
+     <thead>
+       <tr>
+         <th scope="col">#</th>
+         <th scope="col">Name</th>
+         <th scope="col">Degree</th>
+         <th scope="col">Email</th>
+         <th scope="col">Specialisation </th>
+       </tr>
+     </thead>
+     <tbody class="table-row">
+          {% for student in students %}
+       <tr>
+         <th scope="row">1</th>
+         <td>{{ student.student_name }}</td>
+         <td>{{ student.Degree_name }}</td>
+         <td>{{ student.Email }}</td>
+         <td>{{ student.Specialisation}}</td>
+       </tr>
+       {% endfor %}
 
 {% endblock body %}
 
+{% block js %}
+  
+<script>
+
+const table_search = document.getElementById('table-search');
+const all_tds = document.querySelectorAll('tr');
+const tableBody = document.querySelector(".table-row"); 
+//console.log(all_tds);
+
+table_search.addEventListener('input', (e)=>{
+  const value = e.target.value;
+
+  for (let ele of all_tds){
+    //console.log(ele.innerText)
+    const index = ele.innerText.toUpperCase().search(value.toUpperCase()) !== -1? true : false ;
+  // console.log(index);
+    if (index === true) {
+      ele.style.display = ""
+    }else{
+      ele.style.display = "none"
+    }
+    //const index2 = ele.innerText.search(value.toLowerCase()) !== -1? true : false ;
+    //console.log(index2 == true? ele : "");
+  
+    
+  }
+
+
+ 
+});
+
+//all_tds.forEach((ele) => {
+//    console.log(ele.innerText)
+  
+//})
+
+
+</script>
+
+{% endblock js %}
 

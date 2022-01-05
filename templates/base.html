@@ -70,7 +70,7 @@
           integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
           crossorigin="anonymous"></script>
 
-          <script>
+          <!-- <script>
 
                const degree = document.getElementById("Degree_name");
                const if_other = document.getElementById("if_others");
@@ -103,10 +103,13 @@
                     document.querySelector('footer').classList.remove('fixed-bottom');
                }
      
+               
      
      
-     
-          </script>
+          </script> -->
+
+          {% block js %}
+          {% endblock js %}
      
      <!-- <script type="text/javascript" src="{% static '/JS/Script.js' %}"></script> -->
 
